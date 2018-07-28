@@ -36,6 +36,20 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private IDownloadService mDownloadService;
+    private ServiceConnection mServiceConn=new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            mDownloadService=IDownloadService.Stub.asInterface(iBinder);
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+
+        }
+    };
+
 
 
     @Override
